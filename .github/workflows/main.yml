@@ -45,12 +45,12 @@ jobs:
           tag_name: ${{ env.Tags }}
           body: Release ${{ env.Tags }}
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.JY_TOKEN }}
       
       - name: UploadAssets
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.JY_TOKEN }}
         with:
          upload_url: ${{ steps.create_release.outputs.upload_url }}
          asset_path: ./components/tmp/All.zip
